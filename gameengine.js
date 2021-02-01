@@ -5,9 +5,15 @@ class GameEngine {
         this.entities = [];
         this.showOutlines = false;
         this.ctx = null;
-        this.click = null;
+        this.click = false;
         this.mouse = null;
-        this.wheel = null;
+
+        this.left = null;
+        this.right = null;
+        this.up = null;
+        this.down = null;
+        // this.switchWeapon = null; // to be used later when weapon inventory expands
+
         this.surfaceWidth = null;
         this.surfaceHeight = null;
     };
@@ -39,27 +45,63 @@ class GameEngine {
         }
 
         this.ctx.canvas.addEventListener("mousemove", function (e) {
-            //console.log(getXandY(e));
+            // console.log(getXandY(e));
             that.mouse = getXandY(e);
         }, false);
 
-        this.ctx.canvas.addEventListener("click", function (e) {
-            //console.log(getXandY(e));
-            that.click = getXandY(e);
+        this.ctx.canvas.addEventListener("mousedown", function (e) {
+            that.click = true;
+            console.log(that.click);
         }, false);
 
-        this.ctx.canvas.addEventListener("wheel", function (e) {
-            //console.log(getXandY(e));
-            that.wheel = e;
-            //       console.log(e.wheelDelta);
-            e.preventDefault();
+        this.ctx.canvas.addEventListener("mouseup", function (e) {
+            that.click = false;
+            console.log(that.click);
+
         }, false);
 
-        this.ctx.canvas.addEventListener("contextmenu", function (e) {
-            //console.log(getXandY(e));
-            that.rightclick = getXandY(e);
-            e.preventDefault();
+        this.ctx.canvas.addEventListener("keydown", function (e) {
+            switch(e.code) {
+                case "KeyA":
+                    that.left = true;
+                    break;
+                case "KeyD":
+                    that.right = true;
+                    break;
+                case "KeyW":
+                    that.up = true;
+                    break;
+                case "KeyS":
+                    that.down = true;
+                    break;
+                // case "KeyE": // for switching weapon
+                //     that.switchWeapon = true;
+                //     break;
+            }            
         }, false);
+
+        this.ctx.canvas.addEventListener("keyup", function (e) {
+            switch(e.code) {
+                case "KeyA":
+                    that.left = false;
+                    break;
+                case "KeyD":
+                    that.right = false;
+                    break;
+                case "KeyW":
+                    that.up = false;
+                    break;
+                case "KeyS":
+                    that.down = false;
+                    break;
+                // case "KeyE": // for switching weapon
+                //     that.switchWeapon = false;
+                //     break;
+            }            
+        }, false);
+
+
+        
     };
 
     addEntity(entity) {

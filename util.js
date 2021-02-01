@@ -25,8 +25,37 @@ window.requestAnimFrame = (function () {
         };
 })();
 
-// add global parameters here
+function distance(A, B) {
+    return Math.sqrt((B.x - A.x) * (B.x - A.x) + (B.y - A.y)*(B.y - A.y));
+};
 
-//var params = {
-// 
-//};
+function getFacing(mouse, x, y) {
+    
+    let mouseX = mouse.x;
+    let mouseY = mouse.y;
+
+    deltaX = mouseX - x;
+    deltaY = mouseY - y;
+
+    let angle = Math.atan2(deltaY, deltaX) / Math.PI;
+
+    if (-0.625 < angle && angle < -0.375) return 0;
+    if (-0.375 < angle && angle < -0.125) return 1;
+    if (-0.125 < angle && angle < 0.125) return 2;
+    if (0.125 < angle && angle < 0.375) return 3;
+    if (0.375 < angle && angle < 0.625) return 4;
+    if (0.625 < angle && angle < 0.875) return 5;
+    if (-0.875 > angle || angle > 0.875) return 6;
+    if (-0.875 < angle && angle < -0.625) return 7;
+};
+
+var params = {
+    charscale: 4,
+    basescale: 3,
+    weaponscale: 3,
+    canvasWidth: 1350,
+    canvasHeight: 900,
+    cursorscale: 2,
+    enemyscale: 3,
+    bulletscale: 2
+};
