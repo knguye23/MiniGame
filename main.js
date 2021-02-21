@@ -16,7 +16,7 @@ ASSET_MANAGER.queueDownload("./topdown_shooter/guns/flamthrower/flamethrower_dia
 ASSET_MANAGER.queueDownload("./topdown_shooter/guns/flamthrower/flamethrower_down.png");
 
 // bullet
-ASSET_MANAGER.queueDownload("./topdown_shooter/other/bulleta.png");
+ASSET_MANAGER.queueDownload("./topdown_shooter/other/flamethrower_bullet.png");
 
 //enemy
 ASSET_MANAGER.queueDownload("./topdown_shooter/monster/slime1_front.png");
@@ -24,6 +24,8 @@ ASSET_MANAGER.queueDownload("./topdown_shooter/monster/slime1_front.png");
 // background
 ASSET_MANAGER.queueDownload("./topdown_shooter/background/grass.png");
 ASSET_MANAGER.queueDownload("./topdown_shooter/background/grass1.png");
+ASSET_MANAGER.queueDownload("./topdown_shooter/background/MiniGameMap.png");
+
 
 // base
 ASSET_MANAGER.queueDownload("./topdown_shooter/other/base.png");

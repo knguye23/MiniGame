@@ -49,11 +49,28 @@ function getFacing(mouse, x, y) {
     if (-0.875 < angle && angle < -0.625) return 7;
 };
 
+function getAngle(mouse, x, y) {
+    let mouseX = mouse.x;
+    let mouseY = mouse.y;
+
+    deltaX = mouseX - x;
+    deltaY = mouseY - y;
+
+    return Math.atan2(deltaY, deltaX) / Math.PI;
+}
+
+// swap elements in array
+Array.prototype.swap = function(a, b) {
+    var temp = this[a];
+    this[a] = this[b];
+    this[b] = temp;
+};
+
 var params = {
     charscale: 4,
     basescale: 3,
     weaponscale: 3,
-    canvasWidth: 1350,
+    canvasWidth: 1280,
     canvasHeight: 900,
     cursorscale: 2,
     enemyscale: 3,

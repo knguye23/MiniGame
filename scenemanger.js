@@ -13,6 +13,7 @@ class Scenemanager {
 
         var player = new Character(this.gameEngine, 500, 600);
         this.gameEngine.addEntity(player);
+        console.log(this.gameEngine.entities);
 
         var base = new Base(this.gameEngine, 1350/2, 900/2);
         this.gameEngine.addEntity(base);
